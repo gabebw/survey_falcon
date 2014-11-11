@@ -20,6 +20,27 @@ class SurveysController < ApplicationController
     @survey = Survey.find(params[:id])
   end
 
+  def edit
+    @survey = current_user.surveys.find(params[:id])
+  end
+
+  def update
+    @survey = current_user.surveys.find(params[:id])
+
+    if @survey.update(survey_params)
+      redirect_to surveys_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    survey = current_user.surveys.find(params[:id])
+    survey.destroy
+
+    redirect_to surveys_path
+  end
+
   private
 
   def survey_params
