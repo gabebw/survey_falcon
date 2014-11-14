@@ -26,7 +26,6 @@ class SurveysController < ApplicationController
 
   def update
     @survey = current_user.surveys.find(params[:id])
-
     if @survey.update(survey_params)
       redirect_to surveys_path
     else
@@ -44,6 +43,12 @@ class SurveysController < ApplicationController
   private
 
   def survey_params
-    params.require(:survey).permit(:name, :description, question_attributes:[])
+    params.require(:survey).permit(
+      :name,
+      :description,
+      questions_attributes: [],
+      answer_attributes: [],
+      text_answers: []
+    )
   end
 end

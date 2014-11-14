@@ -1,7 +1,8 @@
 <%= text_style.body %>
 
 <div>
-<%= form.fields_for [text_style.question, TextAnswer.new] do |form| %>
-  <%= form.text_field :body, placeholder: "Answer" %>
+<%= form.fields_for :text_answers do |answer_attributes| %>
+  <%= answer_attributes.hidden_field :id %>
+  <%= answer_attributes.text_field :body, placeholder: "Answer" %>
 <% end %>
 </div>
