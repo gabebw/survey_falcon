@@ -1,5 +1,8 @@
 <div>
   <li>
-    <%= link_to survey.name, survey %> - <%= survey.description %>
+    <%= link_to survey.name, survey, class: "title" %>
+    <div class="description">
+      <%= survey.description %>
+    </div>
   </li>
 </div>
