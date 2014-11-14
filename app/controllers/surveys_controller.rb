@@ -44,6 +44,6 @@ class SurveysController < ApplicationController
   private
 
   def survey_params
-    params.require(:survey).permit(:name, :description)
+    params.require(:survey).permit(:name, :description, question_attributes:[])
   end
 end
