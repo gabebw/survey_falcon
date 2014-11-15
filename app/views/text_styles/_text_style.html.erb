@@ -1,6 +1,6 @@
 <%= text_style.body %>
 
-<%= form.fields_for [text_style.question, TextAnswer.new] do |form| %>
-  <%= form.label :body %>
-  <%= form.text_field :body %>
+<%= form.fields_for text_style.text_answers.build do |style_fields| %>
+  <%= style_fields.label :body %>
+  <%= style_fields.text_field :body %>
 <% end %>
