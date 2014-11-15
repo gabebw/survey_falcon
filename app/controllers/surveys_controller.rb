@@ -18,7 +18,8 @@ class SurveysController < ApplicationController
 
   def show
     @survey = Survey.find(params[:id])
-    @custom_survey = CustomSurvey.new(questions: @survey.questions)
+    @custom_survey = CustomSurvey.new
+    @custom_survey.questions = @survey.questions
   end
 
   def edit
