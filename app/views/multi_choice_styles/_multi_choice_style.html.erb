@@ -5,12 +5,10 @@
 <%= link_to "Add new answer option",
   new_multi_choice_style_multi_choice_option_path(multi_choice_style) %>
 
-<%= form_for [multi_choice_style.question, MultiChoiceAnswer.new] do |form| %>
-  <%= form.collection_radio_buttons(
+<%= form.fields_for [multi_choice_style.question, MultiChoiceAnswer.new] do |fields| %>
+  <%= fields.collection_radio_buttons(
     :multi_choice_option_id,
     multi_choice_style.multi_choice_options,
     :id,
     :body) %>
-
-  <%= form.submit %>
 <% end %>

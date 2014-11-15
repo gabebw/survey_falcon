@@ -19,5 +19,11 @@
 </div>
 
 <ul>
-    <%= render @survey.questions %>
+  <%= form_for @custom_survey do |form| %>
+    <%= form.fields_for :questions do |fields| %>
+      <%= render fields.object.style, form: fields %>
+    <% end %>
+
+    <%= form.submit %>
+  <% end %>
 </ul>

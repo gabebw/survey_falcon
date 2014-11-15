@@ -1,7 +1,6 @@
 <%= text_style.body %>
 
-<%= form_for [text_style.question, TextAnswer.new] do |form| %>
-  <%= form.label :body %>
-  <%= form.text_field :body %>
-  <%= form.submit "Answer" %>
+<%= form.fields_for [text_style.question, TextAnswer.new] do |fields| %>
+  <%= fields.label :body %>
+  <%= fields.text_field :body %>
 <% end %>

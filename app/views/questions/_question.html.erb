@@ -1,5 +1,7 @@
 <div>
   <li>
-    <%= render question.style %>
+    <%= form.fields_for question do |question_fields| %>
+      <%= render question.style, form: question_fields %>
+    <% end %>
   </li>
 </div>
