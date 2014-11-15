@@ -19,5 +19,12 @@
 </div>
 
 <ul>
-    <%= render @survey.questions %>
+  <%= form_for @survey do |form| %>
+    <%= form.fields_for :questions do |question_fields| %>
+      <%= question_fields.fields_for :style do |style_fields| %>
+        <%= render style_fields.object, form: style_fields %>
+      <% end %>
+    <% end %>
+    <%= form.submit "Answer all questions" %>
+  <% end %>
 </ul>
